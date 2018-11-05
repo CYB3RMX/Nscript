@@ -24,8 +24,10 @@ quit()
   Y) echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" GOODBYE..\n" ;;
   y) echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" GOODBYE..\n" ;;
   N) clear
+     cd
      ./nscript.sh ;;
   n) clear
+     cd
      ./nscript.sh ;;
   esac
 }
@@ -77,6 +79,7 @@ opening()
  echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" SCRIPTS MENU\n\n"
  echo -en $lg1"["$lr1"1"$lg1"]"$w1" PORT ATTACKS\n"
  echo -en $lg1"["$lr1"2"$lg1"]"$w1" ROUTER ATTACKS\n"
+ echo -en $lg1"["$lr1"3"$lg1"]"$w1" SQL DATA ATTACK\n"
  echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" CHOOSE:\n"
  read nscripts
 }
@@ -121,7 +124,28 @@ routers()
   echo -en $lg1"["$lr1"x"$lg1"]"$w1" GO BACK >>\n"
   read routerz
 }
-#-------------------------@
+#------------SQL DATA ATTACK OPTION-------------@
+sql()
+{
+  clear
+  echo -en $lc1"  _____  ____  _\a\n"
+  echo -en " / ____|/ __ \| | \n"
+  echo -en "| (___ | |  | | | \n"
+  echo -en " \___ \| |  | | | \n"
+  echo -en " ____) | |__| | |____\n"
+  echo -en "|_____/ \___\_\______| \n"
+  echo -en $lg1"       _____       _______\n"
+  echo -en "      |  __ \   /\|__   __|/\ \n"
+  echo -en "      | |  | | /  \  | |  /  \ \n"
+  echo -en "      | |  | |/ /\ \ | | / /\ \ \n"
+  echo -en "      | |__| / ____ \| |/ ____ \ \n"
+  echo -en "      |_____/_/    \_\_/_/    \_\ \n"
+  echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" TARGET => "$lc1$target
+  echo -en $lg1"\n\n["$lr1"1"$lg1"]"$w1" AVAILABLE SCRIPTS\n"
+  echo -en $lg1"["$lr1"x"$lg1"]"$w1" GO BACK >>\n"
+  echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" CHOOSE:\n"
+  read sql_select
+}
 case $nscripts in
 1) ports
    case $portz in
@@ -215,6 +239,19 @@ case $nscripts in
    #------------TPLINK ATTACK OPTION-------------@
    3) cd ..;cd usr/share/nmap/scripts
       ls | grep tplink
+      echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
+      read scriptx
+      echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
+      nmap -Pn -sV --script $scriptx $target
+      quit ;;
+   x) cd
+      clear
+      ./nscript.sh ;;
+   esac ;;
+3) sql
+   case $sql_select in
+   1) cd ..;cd usr/share/nmap/scripts
+      ls | grep sql
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
