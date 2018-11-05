@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #-*- encoding: utf-8 -*-
 
-#------------COLOR ANT FONT AREA-------------@
+#------------COLOR AND FONT AREA-------------@
 lg1='\e[92m'
 lg2='\e[102m'
 lr1='\e[91m'
