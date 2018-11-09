@@ -25,10 +25,10 @@ quit()
   Y) echo -en $lg1"\a\n["$lr1"+"$lg1"]"$w1" GOODBYE..\n" ;;
   y) echo -en $lg1"\a\n["$lr1"+"$lg1"]"$w1" GOODBYE..\n" ;;
   N) clear
-     cd
+     cd;cd Nscript
      ./nscript.sh ;;
   n) clear
-     cd
+     cd;cd Nscript
      ./nscript.sh ;;
   esac
 }
@@ -197,6 +197,7 @@ brute_force()
   echo -en $lg1"["$lr1"7"$lg1"]"$w1" DNS BRUTE\n"
   echo -en $lg1"["$lr1"8"$lg1"]"$w1" MYSQL BRUTE\n"
   echo -en $lg1"["$lr1"9"$lg1"]"$w1" VNC BRUTE\n"
+  echo -en $lg1"["$lr1"10"$lg1"]"$w1" SMB BRUTE\n"
   echo -en $lg1"["$lr1"x"$lg1"]"$w1" GO BACK >>\n"
   echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" CHOOSE:"
   read force
@@ -205,7 +206,7 @@ case $nscripts in
 1) ports
    case $portz in
    #------------FTP ATTACK OPTION-------------@
-   1) cd ..;cd usr/share/nmap/scripts
+   1) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep ftp
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -213,7 +214,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------SSH ATTACK OPTION-------------@
-   2) cd ..;cd usr/share/nmap/scripts
+   2) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep ssh
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -221,7 +222,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------TELNET ATTACK OPTION-------------@
-   3) cd ..;cd usr/share/nmap/scripts
+   3) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep telnet
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -229,7 +230,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------SMTP ATTACK OPTION-------------@
-   4) cd ..;cd usr/share/nmap/scripts
+   4) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep smtp
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -237,7 +238,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------HTTP ATTACK OPTION-------------@
-   5) cd ..;cd usr/share/nmap/scripts
+   5) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep http
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -245,7 +246,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------HTTPS ATTACK OPTION-------------@
-   6) cd ..;cd usr/share/nmap/scripts
+   6) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep https
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -253,7 +254,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------SMB ATTACK OPTION-------------@
-   7) cd ..;cd usr/share/nmap/scripts
+   7) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep smb
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -261,14 +262,14 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------RTSP ATTACK OPTION-------------@
-   8) cd ..;cd usr/share/nmap/scripts
+   8) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep rtsp
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   x) cd
+   x) cd;cd Nscript
       clear
       ./nscript.sh ;;
    esac ;;
@@ -276,7 +277,7 @@ case $nscripts in
 2) routers
    case $routerz in
    #------------CISCO ATTACK OPTION-------------@
-   1) cd ..;cd usr/share/nmap/scripts
+   1) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep cisco
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -284,7 +285,7 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------DLINK ATTACK OPTION-------------@
-   2) cd ..;cd usr/share/nmap/scripts
+   2) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep dlink
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
@@ -292,81 +293,81 @@ case $nscripts in
       nmap -Pn -sV --script $scriptx $target
       quit ;;
    #------------TPLINK ATTACK OPTION-------------@
-   3) cd ..;cd usr/share/nmap/scripts
+   3) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep tplink
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   x) cd
+   x) cd;cd Nscript
       clear
       ./nscript.sh ;;
    esac ;;
 3) sql
    case $sql_select in
-   1) cd ..;cd usr/share/nmap/scripts
+   1) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep sql
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   x) cd
+   x) cd;cd Nscript
       clear
       ./nscript.sh ;;
    esac ;;
 4) ios_hack
    case $ios in
-   1) cd ..;cd usr/share/nmap/scripts
+   1) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep ios
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   x) cd
+   x) cd;cd Nscript
       clear
       ./nscript.sh ;;
    esac ;;
 5) brute_force
    case $force in
-   1) cd ..;cd usr/share/nmap/scripts
+   1) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep ftp-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   2) cd ..;cd usr/share/nmap/scripts
+   2) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep ssh-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   3) cd ..;cd usr/share/nmap/scripts
+   3) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep telnet-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   4) cd ..;cd usr/share/nmap/scripts
+   4) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep smtp-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   5) cd ..;cd usr/share/nmap/scripts
+   5) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep snmp-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   6) cd ..;cd usr/share/nmap/scripts
+   6) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep http-brute
       ls | grep http-auth
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
@@ -374,28 +375,35 @@ case $nscripts in
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   7) cd ..;cd usr/share/nmap/scripts
+   7) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep dns-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   8) cd ..;cd usr/share/nmap/scripts
+   8) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep mysql-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   9) cd ..;cd usr/share/nmap/scripts
+   9) cd;cd ..;cd usr/share/nmap/scripts
       ls | grep vnc-brute
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
       read scriptx
       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
       nmap -Pn -sV --script $scriptx $target
       quit ;;
-   x) cd
+   10) cd;cd ..;cd usr/share/nmap/scripts
+       ls | grep smb-brute
+       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" YOUR SCRIPT:\n"
+       read scriptx
+       echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ATTACK STARTED..\n"
+       nmap -Pn -sV --script $scriptx $target
+       quit ;;
+   x) cd;cd Nscript
       clear
       ./nscript.sh ;;
    esac ;;
