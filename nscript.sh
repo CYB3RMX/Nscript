@@ -73,6 +73,20 @@ opening()
  echo -en "                       |_| \n"
  echo -en $lbl2$black1"\nBY CYB3RMX_" $def2
  echo -en $def2"\n"
+ echo -en $lg1"\n["$lr1"1"$lg1"]"$w1" SCRIPT ATTACK"
+ echo -en $lg1"\n["$lr1"2"$lg1"]"$w1" ALIVE HOST SCAN"
+ echo -en $lg1"\n\n["$lr1"+"$lg1"]"$w1" CHOOSE: "
+ read sell
+ case $sell in
+ 1) scriptz ;;
+ 2) echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ENTER BROADCAST: "
+    read broad
+    nmap -Pn -sV $broad
+    quit ;;
+ esac
+}
+scriptz()
+{
  echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" ENTER YOUR TARGET:\n"
  read target
  echo -en $lg1"\n["$lr1"+"$lg1"]"$w1" TARGET => "$lc1$target
